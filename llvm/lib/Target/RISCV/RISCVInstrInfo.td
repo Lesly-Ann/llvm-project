@@ -727,6 +727,11 @@ def FENCE_TSO : RVInstI<0b000, OPC_MISC_MEM, (outs), (ins), "fence.tso", "">, Sc
   let imm12 = {0b1000,0b0011,0b0011};
 }
 
+def DFENCE : RVInstI<0b000, OPC_MISC_MEM, (outs), (ins GPR:$rs1), "dfence", "$rs1">, Sched<[]> {
+  let rd = 0;
+  let imm12 = {0b0001,0b0000,0b0000};
+}
+
 def FENCE_I : RVInstI<0b001, OPC_MISC_MEM, (outs), (ins), "fence.i", "">, Sched<[]> {
   let rs1 = 0;
   let rd = 0;
